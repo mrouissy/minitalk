@@ -1,4 +1,4 @@
-#include "../headers/minitalk.h"
+#include "utils.h"
 
 void decrypt(int sig)
 {

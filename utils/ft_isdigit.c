@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printfH.h                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouissy <mrouissy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 14:52:00 by mrouissy          #+#    #+#             */
-/*   Updated: 2024/11/08 15:02:41 by mrouissy         ###   ########.fr       */
+/*   Created: 2024/11/06 20:03:22 by mrouissy          #+#    #+#             */
+/*   Updated: 2024/11/06 20:03:26 by mrouissy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
+#include "utils.h"
 
-int	ft_printf(const char *string, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_unsigned(unsigned int n);
-int	ft_hexa(unsigned int n, char format);
-int	ft_printad(void *p);
-void decrypt(int sig);
+int	ft_isdigit(int i)
+{
+	if (i >= '0' && i <= '9')
+		return (1);
+	return (0);
+}

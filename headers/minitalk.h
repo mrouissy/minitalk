@@ -1,15 +1,8 @@
+
+
 #ifndef MINITALK_H
 #define MINITALK_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <signal.h>
-
-
-//return void
-
-
-//return unsigned int*
+#include "../utils/utils.h"
 
 #endif

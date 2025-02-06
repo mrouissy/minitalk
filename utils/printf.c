@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <limits.h>
+#include "utils.h"
 
 
 static int	toprint(va_list args, char c)
@@ -51,7 +50,7 @@ int	ft_printf(const char *string, ...)
 	if (!string)
 		return (-1);
 	va_start(args, string);
-	while (string[i])// printf("pr num = %d sec num = %d thr num = %d %",1,2,3); // printf("%");
+	while (string[i])
 	{
 		if (string[i] == '%')
 		{
@@ -67,9 +66,4 @@ int	ft_printf(const char *string, ...)
 	va_end(args);
 	return (len);
 }
-// int main()
-// {
-// 	printf("%d",ft_printf("medd %s"));
-// 	return 0;
-// }
 
