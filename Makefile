@@ -1,33 +1,53 @@
 CLIENT = client
 SERVER = server
-C = cc
 
-CFLAG = -Wall -Wextra -Werror
+BCLIENT = client_bonus
+BSERVER = server_bonus
+
+CFLAG = cc -Wall -Wextra -Werror
 
 RM = rm -f
 
-OBJSRV = $(SRV:.c=.o)
-
-OBJCLI = $(CLI:.c=.o)
 
 SRV = mandatory/server.c
 
 CLI = mandatory/client.c
 
+BSRV = bonus/server_bonus.c
+BOBJSRV = $(BSRV:.c=.o)
+
+BOBJCLI = $(BCLI:.c=.o)
+
+OBJSRV = $(SRV:.c=.o)
+
+OBJCLI = $(CLI:.c=.o)
+
+BCLI = bonus/client_bonus.c
+
 all: $(CLIENT) $(SERVER)
 
+bonus: $(BCLIENT) $(BSERVER)
 
 $(CLIENT) : $(OBJCLI)
 	@make -C ./utils
-	@$(C) $(CFLAG) -o $(CLIENT) $(CLI) utils/utils.a
+	@$(CFLAG) -o $(CLIENT) $(CLI) utils/utils.a
 	@echo "Client created √"
 
-$(SERVER) : $(OBJSRV)
-	@$(C) $(CFLAG) -o $(SERVER) $(SRV) utils/utils.a
+$(SERVER) : $(BOBJSRV)
+	@$(CFLAG) -o $(SERVER) $(SRV) utils/utils.a
+	@echo "Server created √"
+
+$(BCLIENT) : $(BOBJCLI)
+	@make -C ./utils
+	@$(CFLAG) -o $(BCLIENT) $(BCLI) utils/utils.a
+	@echo "Client created √"
+
+$(BSERVER) : $(OBJSRV)
+	@$(CFLAG) -o $(BSERVER) $(BSRV) utils/utils.a
 	@echo "Server created √"
 
 %.o: %.c
-	@$(C) $(FLAG) -c $< -o $@
+	@$(FLAG) -c $< -o $@
 
 clean:
 	@make clean -C ./utils

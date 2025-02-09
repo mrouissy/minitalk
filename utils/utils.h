@@ -21,3 +21,6 @@ int	ft_isdigit(int i);
 //minitalk utils
 void decrypt(int sig);
 void sender(pid_t pid, char *msg);
+
+void decrypt_bonus(int sig, siginfo_t *info,void *con);
+void sender_bonus(pid_t pid, char *msg);
